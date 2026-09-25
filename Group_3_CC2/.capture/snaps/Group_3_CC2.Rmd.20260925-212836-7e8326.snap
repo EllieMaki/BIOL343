@@ -38,24 +38,19 @@ Write the group members as an **ordered list** (Chapter 5, *Lists*). For each me
 The chunk below sets the default options for every other chunk in the document. Add the **chunk option** (Chapter 5, *Code Chunk Arguments*) that runs it without showing either the code or any output in the knitted report.
 
 ```{r setup, include = FALSE}
-library(knitr)
 knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r test}
-1 + 1
 ```
 
 # Data dictionary
 
 Write a **Markdown table** (Chapter 5, *Tables*) with three columns — variable, description, units — and one row for each of these variables from the Coding Challenge 1 dataset: `population_type`, `ovary_width`, `ovary_height`, `flower_number`. Use the *pipes and dashes* format from the chapter, not R code.
 
----------------------------------------------------
-Variable        | Description       | Units
-----------------|-------------------|--------------
-population_type | Population Type   | categorical 
-ovary_width     | Width of ovary    | mm
-ovary_height    | Height of ovary   | mm
+--------------------------------------
+Variable        | Description | Units
+----------------|-------------|-------
+population_type | Population Type | categorical 
+ovary_width     | Width of ovary                 | mm
+ovary_height    | Height of ovary            | mm
 flower_number   | Number of flowers | count 
 
 # Import and clean the data
@@ -98,7 +93,7 @@ area_means <- aggregate(ovary_area ~ PopulationType, data = cc1_data, mean)
 
 ```{r area-table, echo = FALSE}
 library(knitr)
-kable(area_means, caption = "Mean Ovary Area By Population Type")
+kable(area_means, format = "html", caption = "Mean Ovary Area By Population Type")
 ```
 
 # Embedded graph
@@ -106,7 +101,7 @@ kable(area_means, caption = "Mean Ovary Area By Population Type")
 Make a histogram of `ovary_area` with `ggplot()` + `geom_histogram()` (Chapter 4), choosing a sensible `binwidth` and using `facet_wrap()` to give each `population_type` its own panel, `labs()` for axis labels with units and a title, and `theme_classic()` (Chapter 7). This chunk should show the **graph but not the code**, and it should not print package start-up messages (see the chunk header used under *Embed Graphs* in Chapter 5).
 
 ```{r area-histogram, echo = FALSE, message = FALSE, warning = FALSE}
-Plot1 <- ggplot(aes(x=ovary_area), data=cc1_data) + geom_histogram(binwidth=0.5) + xlab("Ovary Area (mm^2)") + ylab("Count") + labs(title="Ovary Area of Asexual and Sexual Solanum pimpinellifolium Populations") + theme_classic()
+Plot1 <- ggplot(aes(x=ovary_area), data=cc1_data) + geom_histogram(binwidth=0.5) + xlab("Population Type") + ylab("Ovary Area (mm^2)") + labs(title="Ovary Area of Asexual and Sexual Solanum pimpinellifolium Populations") + theme_classic()
 Plot1 + facet_wrap(.~PopulationType) 
 ```
 

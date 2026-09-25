@@ -32,31 +32,21 @@ Write the group members as an **ordered list** (Chapter 5, *Lists*). For each me
 
 1. **Ellie Maki** — 20419523
     + [BIOL343_CC](https://github.com/EllieMaki/BIOL343)
+1. 
 
 # Setup chunk
 
 The chunk below sets the default options for every other chunk in the document. Add the **chunk option** (Chapter 5, *Code Chunk Arguments*) that runs it without showing either the code or any output in the knitted report.
 
 ```{r setup, include = FALSE}
-library(knitr)
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r test}
-1 + 1
+knitr::opts_chunk$set(echo )
 ```
 
 # Data dictionary
 
 Write a **Markdown table** (Chapter 5, *Tables*) with three columns — variable, description, units — and one row for each of these variables from the Coding Challenge 1 dataset: `population_type`, `ovary_width`, `ovary_height`, `flower_number`. Use the *pipes and dashes* format from the chapter, not R code.
 
----------------------------------------------------
-Variable        | Description       | Units
-----------------|-------------------|--------------
-population_type | Population Type   | categorical 
-ovary_width     | Width of ovary    | mm
-ovary_height    | Height of ovary   | mm
-flower_number   | Number of flowers | count 
+(table here)
 
 # Import and clean the data
 
@@ -67,6 +57,8 @@ mydata <- read.csv("A1_Data_Excel.csv")
 getwd()
 cc1_data <- mydata[0:45, 0:8]
 cc1_data$ovary_area <- (cc1_data$OvaryWidth.mm.*(cc1_data$OvaryHeight.mm.))
+
+
 ```
 
 Now document the inspection commands you used (`class()`, `dim()`, `str()`, `head()`, `tail()`) in the chunk below. Add the chunk option that **shows this code in the report but does not run it**, so that the reader can see what you checked without pages of output.
@@ -77,6 +69,7 @@ dim(cc1_data)
 str(cc1_data)
 head(cc1_data)
 tail(cc1_data)
+
 ```
 
 # Equation
@@ -97,8 +90,7 @@ area_means <- aggregate(ovary_area ~ PopulationType, data = cc1_data, mean)
 **b.** Display `area_means` with `kable()` from the `knitr` package (Chapter 5, *Dynamic Tables*), including a `caption`. This chunk should show the **table but not the code**.
 
 ```{r area-table, echo = FALSE}
-library(knitr)
-kable(area_means, caption = "Mean Ovary Area By Population Type")
+kable(area_means, format = "html", caption = "Mean Ovary Area By Population Type")
 ```
 
 # Embedded graph
@@ -106,7 +98,7 @@ kable(area_means, caption = "Mean Ovary Area By Population Type")
 Make a histogram of `ovary_area` with `ggplot()` + `geom_histogram()` (Chapter 4), choosing a sensible `binwidth` and using `facet_wrap()` to give each `population_type` its own panel, `labs()` for axis labels with units and a title, and `theme_classic()` (Chapter 7). This chunk should show the **graph but not the code**, and it should not print package start-up messages (see the chunk header used under *Embed Graphs* in Chapter 5).
 
 ```{r area-histogram, echo = FALSE, message = FALSE, warning = FALSE}
-Plot1 <- ggplot(aes(x=ovary_area), data=cc1_data) + geom_histogram(binwidth=0.5) + xlab("Ovary Area (mm^2)") + ylab("Count") + labs(title="Ovary Area of Asexual and Sexual Solanum pimpinellifolium Populations") + theme_classic()
+Plot1 <- ggplot(aes(x=ovary_area), data=cc1_data) + geom_histogram(binwidth=0.5) + xlab("Population Type") + ylab("Ovary Area (mm^2)") + labs(title="Ovary Area of Asexual and Sexual Solanum pimpinellifolium Populations") + theme_classic()
 Plot1 + facet_wrap(.~PopulationType) 
 ```
 
@@ -126,7 +118,7 @@ Your project folder is a GitHub repository (Chapter 6). Before you submit:
 1. Make sure the repository contains the `.Rmd`, `data/A1_Data_Excel.csv`, `images/` with your photo, and the knitted `.html`, and that everything is **committed and pushed**.
 1. Paste the **SHA** of your final commit (Chapter 6, *Timeline*; the 7-character code shown beside each commit on GitHub) below, formatted as in-line code with back-ticks.
 
-Final commit SHA: 2nd last
+Final commit SHA: 
 
 # DO THIS LAST {-}
 

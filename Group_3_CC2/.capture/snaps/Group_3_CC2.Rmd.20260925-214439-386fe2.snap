@@ -38,13 +38,9 @@ Write the group members as an **ordered list** (Chapter 5, *Lists*). For each me
 The chunk below sets the default options for every other chunk in the document. Add the **chunk option** (Chapter 5, *Code Chunk Arguments*) that runs it without showing either the code or any output in the knitted report.
 
 ```{r setup, include = FALSE}
-library(knitr)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r test}
-1 + 1
-```
 
 # Data dictionary
 
