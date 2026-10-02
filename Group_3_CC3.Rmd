@@ -143,18 +143,25 @@ Using only `data1` and `data2`, report the number of rows returned by `inner_joi
 inner <- inner_join(data1, data2, by=c("ID", "Date"))
 nrow(inner)
 
-left 
+left <- left_join(data1, data2, by=c("ID", "Date"))
+nrow(left)
 
-# right
+right <- right_join(data1, data2, by=c("ID", "Date"))
+nrow(right)
 
-# full
-nrow(data1and2)
 
+full <- full_join(data1, data2, by=c("ID", "Date"))
+nrow(full)
+
+names(inner)
+names(left)
+names(right)
+names(full)
 ```
 
 **Question 3:** The four numbers differ. Explain which rows each verb keeps, and what that tells you about samples that are in one file but not the other.
 
-**Answer:**
+**Answer:** Each join command indicated which section of the data is being kept when the two datasets are combined. Full join takes all of the rows from both datasets, left join keeps the columns from the left dataset/the first one listed in the 
 
 # Part 3 — Dates, summaries and ordering
 

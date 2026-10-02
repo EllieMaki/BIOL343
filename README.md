@@ -1,1 +1,2 @@
-# BIOL343_CC3
+# BIOL343
+Repository for BIOL343 Coding Challenges
