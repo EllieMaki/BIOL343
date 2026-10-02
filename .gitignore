@@ -49,5 +49,5 @@ po/*~
 rsconnect/
 
 # Capture folder
-.capture/ 
+.capture/
 /.capture/
