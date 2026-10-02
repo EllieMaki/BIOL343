@@ -1,2 +1,2 @@
 # BIOL343
-Repository for BIOL343 Coding Challenge Week 02
+Repository for BIOL343 Coding Challenges
