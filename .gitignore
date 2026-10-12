@@ -56,3 +56,8 @@ rsconnect/
 **/.capture/
 **/my-capture-*.zip
 **/positpal-watcher.log
+
+# Positron capture files and logs
+**/.capture/
+**/my-capture-*.zip
+**/positpal-watcher.log
